@@ -1,30 +1,22 @@
-# Hide YouTube-Shorts
+# FutureCollab
 
 [![Extension's Mozilla Rating](https://img.shields.io/amo/rating/hide-youtube-shorts?color=green&label=Mozilla%20Rating&logo=FirefoxBrowser)](https://addons.mozilla.org/en-US/firefox/addon/hide-youtube-shorts/)
 [![Extension's Mozilla users](https://img.shields.io/amo/users/hide-youtube-shorts?label=Mozilla%20Users&logo=FirefoxBrowser)](https://addons.mozilla.org/en-US/firefox/addon/hide-youtube-shorts/)
 [![Extension's Chrome Web Store rating](https://img.shields.io/chrome-web-store/rating/ankepacjgoajhjpenegknbefpmfffdic?label=Chrome%20Rating&logo=google%20chrome)](https://chrome.google.com/webstore/detail/hide-shorts-for-youtube/ankepacjgoajhjpenegknbefpmfffdic)
 [![Extension's Chrome Web Store users](https://img.shields.io/chrome-web-store/users/ankepacjgoajhjpenegknbefpmfffdic?label=Chrome%20Users&logo=google%20chrome)](https://chrome.google.com/webstore/detail/hide-shorts-for-youtube/ankepacjgoajhjpenegknbefpmfffdic)
-[![Licence](https://img.shields.io/github/license/Vulpelo/hide-youtube-shorts)](https://github.com/Vulpelo/hide-youtube-shorts/blob/master/LICENCE.md)
+[![Licence](https://img.shields.io/github/license/Vulpelo/hide-youtube-shorts)](https://github.com/Risk333/FutureCollab/blob/main/LICENSE.md)
 
-Firefox add-on that hides YouTube-shorts videos from home page, subscriptions and search results. 
-Also allows you to hide "Shorts" tab.
+Tag LinkedIn profiles for future job considerations. Selecting the right people to collaborate with—those who inspire, excite, and challenge you to grow—is just as important as choosing an engaging project in your career. This extension helps you efficiently tag LinkedIn profiles to keep track of potential companies, teams, or projects you'd like to work with, making it easier to shortlist opportunities when the time comes.
 
 ## Features
 
-- Hiding Shorts tab
-- Hiding Shorts only selected pages (home/subscription/channel/search page)
-- Hiding shorts in notifications menu
-- Setting a timeout to not allow checking for shorts more often than a specified time (to reduce calling hiding shorts function to reduce page load) (off by default)
-- Adds a close button to a section with shorts located on the subscriptions page (off by default)
-- Hiding videos that are shorter than specified time (experimental, off by default)
-- Hiding live videos (experimental, off by default)
-- Hiding 'Upcoming' videos (experimental, off by default)
+- Options are available for tagging Indian profiles on Linkedin
 
 ## Installation
 
 ### Firefox 
 
-Install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/hide-youtube-shorts/) webpage
+Install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/FutureCollab/) webpage
 
 or add the Add-on temporarily:
 1. Download the project
@@ -35,7 +27,7 @@ or add the Add-on temporarily:
 
 ### Google Chrome
 
-Install from [Chrome web store](https://chrome.google.com/webstore/detail/hide-shorts-for-youtube/ankepacjgoajhjpenegknbefpmfffdic) webpage
+Install from [Chrome web store](https://chrome.google.com/webstore/detail/FutureCollab/) webpage
 
 or add the Add-on manually:
 1. Download the project
@@ -47,4 +39,4 @@ or add the Add-on manually:
 
 ## License
 
-[GPL-3.0](https://github.com/Risk333/LinkedinCareerCompass/blob/master/LICENCE.md)
+[GPL-3.0](https://github.com/Risk333/FutureCollab/blob/main/LICENSE.md)
