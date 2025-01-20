@@ -1,0 +1,68 @@
+<!DOCTYPE html="en">
+<html>
+  <head>
+    <title>LinkedinCareerCompass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <center>
+      <img src="../../icons/LinkedinCareerCompass_64.png" title="Linkedin Career Compass">
+      <h2>Linkedin Career Compass</h2>
+    </center>
+
+    <button id="downloadData">Download Data</button>
+    
+    <!-- Interested Profiles dropdown -->
+    <details>
+      <summary>
+        <span class="profiles_dropdown">Interested Profiles</span>
+      </summary>
+      <div class="dropdown-content">
+        <fieldset style="pointer-events: auto; opacity: 1;">
+          <legend id="section_name">
+            Linkedin
+          </legend>
+
+          <div class="Linkedin-Interested">
+            <ul id="taggedList"></ul>
+          </div>
+        </fieldset>
+      </div>
+    </details>
+
+    <!-- Not-Interested Profiles dropdown -->
+    <details>
+      <summary>
+        <span class="profiles_dropdown">Not Interested Profiles</span>
+      </summary>
+      <div class="dropdown-content">
+        <fieldset style="pointer-events: auto; opacity: 1;">
+          <legend id="section_name">
+            Linkedin
+          </legend>
+
+          <div class="Linkedin-Interested">
+            <ul id="taggedList"></ul>
+          </div>
+        </fieldset>
+      </div>
+    </details>
+    
+    <div class="bottom">
+      <!-- Links -->
+      <a href="https://github.com/Risk333">
+        <img src="../../icons/github-32px.png" title="Github" width="20" height="20">
+      </a>
+      <!-- Version -->
+      <a class="right">
+        <span id="ext-version"></span>
+      </a>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
