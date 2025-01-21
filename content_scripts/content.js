@@ -1,8 +1,11 @@
 // Function to create the floating tagging interface
-function createTaggerPopup(message, profileUrl) {
+function createTaggerPopup(message, comment, profileUrl) {
   // Remove existing popup if present
   const existingPopup = document.getElementById("linkedTaggerPopup");
   if (existingPopup) existingPopup.remove();
+
+  const existingMiniPopup = document.getElementById("linkedTaggerMinimized");
+  if (existingMiniPopup) existingMiniPopup.remove();
 
   // Create the popup container
   const popup = document.createElement("div");
@@ -57,6 +60,11 @@ function createTaggerPopup(message, profileUrl) {
           background-color: #04AA6D;
           color: white;
         }
+        
+        .button1.clicked {
+          background-color: #04AA6D;
+          color: white;
+        }
 
         .button2 {
           background-color: white; 
@@ -65,6 +73,11 @@ function createTaggerPopup(message, profileUrl) {
         }
 
         .button2:hover {
+          background-color: #f44336;
+          color: white;
+        }
+        
+        .button2.clicked {
           background-color: #f44336;
           color: white;
         }
@@ -100,7 +113,7 @@ function createTaggerPopup(message, profileUrl) {
       <button class="button button2" id="not-interested">Not Interested</button>
 
       <div id="commentBox" style="margin-top: 10px; display: none;">
-        <textarea id="commentInput" placeholder="Add a comment..." rows="3"></textarea>
+        <textarea id="commentInput" placeholder="${comment}" rows="3"></textarea>
         <button class="button button4" id="saveComment" style="margin-top: 10px;">Save</button>
         <button class="button button3" id="skipTagging" style="margin-top: 10px;">Skip</button>
       </div>
@@ -111,12 +124,14 @@ function createTaggerPopup(message, profileUrl) {
   let tag = "";
 
   // Event listeners for buttons
-  document.getElementById("interested").addEventListener("click", () => {
+  document.getElementById("interested").addEventListener("click", (event) => {
+    event.target.classList.add("clicked");
     tag = "Interested";
     document.getElementById("commentBox").style.display = "block"; // Show comment box for tagging
   });
 
-  document.getElementById("not-interested").addEventListener("click", () => {
+  document.getElementById("not-interested").addEventListener("click", (event) => {
+    event.target.classList.add("clicked");
     tag = "Not-Interested";
     document.getElementById("commentBox").style.display = "block"; // Show comment box for tagging
   });
@@ -141,12 +156,20 @@ function createTaggerPopup(message, profileUrl) {
   // Close the comment box if clicked outside and the comment box is active
   document.addEventListener("click", (event) => {
     const commentBox = document.getElementById("commentBox");
-    if (commentBox && commentBox.style.display === "block" && !popup.contains(event.target)) {
+    const popup = document.getElementById("linkedTaggerPopup");
+    if (
+      commentBox &&
+      commentBox.style.display === "block" &&
+      !popup.contains(event.target) &&
+      event.target.id !== "not-interested" &&
+      event.target.id !== "interested" // Ignore clicks on the buttons
+    ) {
       const comment = document.getElementById("commentInput").value;
       saveTag(profileUrl, tag, comment);
       minimizePopup(); // Minimize popup after clicking outside
     }
   });
+
 }
 
 // Function to save tags to local storage
@@ -221,6 +244,14 @@ function observeUrlChanges() {
       if (window.location.href.includes("/in/")) {
         handleProfileChange(currentUrl);
       }
+      else {
+        // Remove existing popup if present
+        const existingPopup = document.getElementById("linkedTaggerPopup");
+        if (existingPopup) existingPopup.remove();
+
+        const existingMiniPopup = document.getElementById("linkedTaggerMinimized");
+        if (existingMiniPopup) existingMiniPopup.remove();
+      }
     }
   });
 
@@ -232,16 +263,22 @@ function observeUrlChanges() {
 function handleProfileChange(profileUrl) {
   chrome.storage.local.get({ taggedProfiles: [] }, (data) => {
     const taggedProfiles = data.taggedProfiles || [];
-    const existingTag = taggedProfiles.find((entry) => entry.url === profileUrl);
+    const existingProfile = taggedProfiles.find((entry) => entry.url === profileUrl);
 
-    if (existingTag) {
+    if (existingProfile) {
       const message =
-        existingTag.tag === "Interested"
+        existingProfile.tag === "Interested"
           ? "You have marked this profile as <b>Interested</b> to work with in future! Changed your mind?"
           : "You have marked this profile as <b>Not Interested</b> to work with in future! Changed your mind?";
-      createTaggerPopup(message, profileUrl);
+
+      const comment =
+        existingProfile.comment === ""
+          ? "Add a comment..."
+          : existingProfile.comment;
+
+      createTaggerPopup(message, comment, profileUrl);
     } else {
-      createTaggerPopup("Are you Interested to work with this profile in the future?", profileUrl);
+      createTaggerPopup("Are you Interested to work with this profile in the future?", "Add a comment...", profileUrl);
     }
   });
 }
