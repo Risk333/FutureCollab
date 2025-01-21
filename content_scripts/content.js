@@ -177,7 +177,8 @@ function saveTag(profileUrl, tag, comment) {
   const timestamp = new Date().toISOString();
 
   // Retrieve existing tagged profiles and update the entry for the profile
-  chrome.storage.local.get({ taggedProfiles: [] }, (data) => {
+  const webBrowser = (typeof browser !== "undefined" ? browser : chrome);
+  webBrowser.storage.local.get({ taggedProfiles: [] }, (data) => {
     const taggedProfiles = data.taggedProfiles || [];
 
     // Filter out any existing entry for the same profileUrl
@@ -187,7 +188,7 @@ function saveTag(profileUrl, tag, comment) {
     updatedProfiles.push({ url: profileUrl, tag, comment, timestamp });
 
     // Save updated list back to storage
-    chrome.storage.local.set({ taggedProfiles: updatedProfiles });
+    webBrowser.storage.local.set({ taggedProfiles: updatedProfiles });
   });
 }
 
@@ -216,8 +217,8 @@ function minimizePopup() {
       z-index: 10000;
     `;
 
-  const GETURL = (typeof browser !== "undefined" ? browser.runtime.getURL : chrome.runtime.getURL);
-  const img = GETURL("../web_accessible_resources/FutureCollab_minimize.png");
+  const webBrowser = (typeof browser !== "undefined" ? browser : chrome);
+  const img = webBrowser.runtime.getURL("../web_accessible_resources/FutureCollab_minimize.png");
   minimizedButton.innerHTML = `<img src="${img}" alt="Tagger Icon" style="width: 30px; height: 30px;">`;
 
   // Add event listener to restore the full popup
@@ -261,7 +262,8 @@ function observeUrlChanges() {
 
 // Function to handle profile changes
 function handleProfileChange(profileUrl) {
-  chrome.storage.local.get({ taggedProfiles: [] }, (data) => {
+  const webBrowser = (typeof browser !== "undefined" ? browser : chrome);
+  webBrowser.storage.local.get({ taggedProfiles: [] }, (data) => {
     const taggedProfiles = data.taggedProfiles || [];
     const existingProfile = taggedProfiles.find((entry) => entry.url === profileUrl);
 

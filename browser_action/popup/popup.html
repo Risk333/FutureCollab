@@ -1,5 +1,5 @@
-<!DOCTYPE html="en">
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <title>FutureCollab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <center>
+    <div class="top">
       <img
         src="images/FutureCollab.png"
         title="FutureCollab"
@@ -20,9 +20,7 @@
         height="64"
       />
       <h2>FutureCollab</h2>
-    </center>
-
-    <button id="downloadData">Download Data</button>
+    </div>
 
     <!-- Interested Profiles dropdown -->
     <details>
@@ -30,35 +28,53 @@
         <span class="profiles_dropdown">Interested Profiles</span>
       </summary>
       <div class="dropdown-content">
-        <fieldset style="pointer-events: auto; opacity: 1">
-          <legend id="section_name">Linkedin</legend>
-
+        <fieldset>
+          <legend>LinkedIn</legend>
           <div class="display_profiles">
-            <ul id="taggedList"></ul>
+            <table id="interestedProfilesTable">
+              <thead>
+                <tr>
+                  <th>Profile URL</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
         </fieldset>
       </div>
     </details>
 
-    <!-- Not-Interested Profiles dropdown
+    <!-- Not-Interested Profiles dropdown -->
     <details>
       <summary>
         <span class="profiles_dropdown">Not Interested Profiles</span>
       </summary>
       <div class="dropdown-content">
-        <fieldset style="pointer-events: auto; opacity: 1">
-          <legend id="section_name">Linkedin</legend>
-
+        <fieldset>
+          <legend>LinkedIn</legend>
           <div class="display_profiles">
-            <ul id="taggedList"></ul>
+            <table id="notInterestedProfilesTable">
+              <thead>
+                <tr>
+                  <th>Profile URL</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
         </fieldset>
       </div>
-    </details> -->
+    </details>
+
+    <div class="pressButton">
+      <button class="button button1" id="downloadData">Download Data</button>
+      <button class="button button2" id="removeData">Remove Entries</button>
+    </div>
 
     <div class="bottom">
-      <!-- Links -->
-      <a href="https://github.com/Risk333/FutureCollab.git">
+      <a href="https://github.com/Risk333/FutureCollab">
         <img
           src="images/github-32px.png"
           title="Github"
@@ -66,7 +82,6 @@
           height="20"
         />
       </a>
-      <!-- Version -->
       <a class="right">
         <span id="ext-version"></span>
       </a>

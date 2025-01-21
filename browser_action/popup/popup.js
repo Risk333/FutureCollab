@@ -1,20 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const list = document.getElementById("taggedList");
-  const downloadButton = document.getElementById("downloadData");
+  const webBrowser = typeof browser !== "undefined" ? browser : chrome;
 
-  // display the data
-  chrome.storage.local.get({ taggedProfiles: [] }, (data) => {
+  const interestedTableBody = document.querySelector("#interestedProfilesTable tbody");
+  const notInterestedTableBody = document.querySelector("#notInterestedProfilesTable tbody");
+  const downloadButton = document.getElementById("downloadData");
+  const removeDataButton = document.getElementById("removeData");
+
+  // Display the data in respective sections
+  webBrowser.storage.local.get({ taggedProfiles: [] }, (data) => {
     const taggedProfiles = data.taggedProfiles || [];
+
     taggedProfiles.forEach((profile) => {
-      const li = document.createElement("li");
-      li.textContent = `${profile.url} - ${profile.tag}`;
-      list.appendChild(li);
+      const tableBody = profile.tag === "Interested" ? interestedTableBody : notInterestedTableBody;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${profile.url || ""}</td>
+        <td>${profile.comment}</td>
+      `;
+      tableBody.appendChild(row);
     });
   });
 
-  // download the data
+  // Download the data
   downloadButton.addEventListener("click", () => {
-    chrome.storage.local.get({ taggedProfiles: [] }, (data) => {
+    webBrowser.storage.local.get({ taggedProfiles: [] }, (data) => {
       const taggedProfiles = data.taggedProfiles || [];
       const header = ["Profile URL", "Tag", "Comment", "Timestamp"];
       const rows = taggedProfiles.map(profile => [
@@ -38,4 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.removeChild(a);
     });
   });
+
+  // Remove all data
+  removeDataButton.addEventListener("click", () => {
+    webBrowser.storage.local.set({ taggedProfiles: [] }, () => {
+      interestedTableBody.innerHTML = "";
+      notInterestedTableBody.innerHTML = "";
+      alert("All entries have been removed!");
+    });
+  });
+
+  // Display extension version
+  const manifestData = webBrowser.runtime.getManifest();
+  document.getElementById("ext-version").textContent = "v" + manifestData.version;
 });
