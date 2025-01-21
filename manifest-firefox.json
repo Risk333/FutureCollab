@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "version": "2025.1.20.02",
+  "name": "FutureCollab",
+  "version": "2025.1.20.03",
 
-  "name": "__MSG_extensionName__",
-  "description": "__MSG_extensionDescription__",
-
+  "description": "Effortlessly tag and track LinkedIn, Reddit, and GitHub profiles for future collaboration and career opportunities.",
+  "homepage_url": "https://github.com/Risk333/FutureCollab",
   "icons": {
-    "64": "icons/LinkedinCareerCompass_64.png"
+    "64": "icons/FutureCollab_addonPage.png"
   },
 
   "permissions": [
@@ -16,18 +16,16 @@
   "content_scripts": [
     {
       "matches": ["*://*.linkedin.com/in/*"],
-      "js": ["./src/content.js"],
+      "js": ["content_scripts/content.js"],
       "run_at": "document_idle"
     }
   ],
 
-  "default_locale": "en",
-
   "action": {
     "default_icon": {
-      "64":"icons/LinkedinCareerCompass_64.png"
+      "64":"browser_action/FutureCollab_toolbar.png"
     },
-    "default_title": "__MSG_extensionName__",
-    "default_popup": "./src/popup/popup.html"
+    "default_title": "FutureCollab",
+    "default_popup": "browser_action/popup/popup.html"
   }
 }
