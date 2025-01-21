@@ -9,7 +9,7 @@ function createTaggerPopup(message, profileUrl) {
   popup.id = "linkedTaggerPopup";
   popup.style = `
       position: fixed;
-      bottom: 10px;
+      top: 10px;
       right: 10px;
       background: white;
       border: 1px solid #ccc;
@@ -178,7 +178,7 @@ function minimizePopup() {
   minimizedButton.id = "linkedTaggerMinimized";
   minimizedButton.style = `
       position: fixed;
-      bottom: 10px;
+      top: 10px;
       right: 10px;
       width: 50px;
       height: 50px;
@@ -192,12 +192,15 @@ function minimizePopup() {
       cursor: pointer;
       z-index: 10000;
     `;
-  minimizedButton.innerHTML = `<img src="../browser_action/popup/images/FutureCollab.png" alt="Tagger Icon" style="width: 30px; height: 30px;">`;
+
+  const GETURL = (typeof browser !== "undefined" ? browser.runtime.getURL : chrome.runtime.getURL);
+  const img = GETURL("../web_accessible_resources/FutureCollab_minimize.png");
+  minimizedButton.innerHTML = `<img src="${img}" alt="Tagger Icon" style="width: 30px; height: 30px;">`;
 
   // Add event listener to restore the full popup
   minimizedButton.addEventListener("click", () => {
     minimizedButton.remove();
-    if(window.location.href.includes("/in/")) {
+    if (window.location.href.includes("/in/")) {
       handleProfileChange(window.location.href);
     }
   });
