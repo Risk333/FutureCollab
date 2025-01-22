@@ -121,24 +121,30 @@ function createTaggerPopup(message, comment, profileUrl) {
 
   document.body.appendChild(popup);
 
-  let tag = "";
-
   // Event listeners for buttons
   document.getElementById("interested").addEventListener("click", (event) => {
     event.target.classList.add("clicked");
-    tag = "Interested";
+
+    const popup = document.getElementById("linkedTaggerPopup");
+    popup.dataset.tag = "Interested";
+    // alert("tag: " + "Interested");
     document.getElementById("commentBox").style.display = "block"; // Show comment box for tagging
   });
 
   document.getElementById("not-interested").addEventListener("click", (event) => {
     event.target.classList.add("clicked");
-    tag = "Not-Interested";
+
+    const popup = document.getElementById("linkedTaggerPopup");
+    popup.dataset.tag = "Not-Interested";
+    // alert("tag: " + "Not-Interested");
     document.getElementById("commentBox").style.display = "block"; // Show comment box for tagging
   });
 
   // Save comment and tag
   document.getElementById("saveComment").addEventListener("click", () => {
     const comment = document.getElementById("commentInput").value;
+    const tag = popup.dataset.tag;
+    // alert("tag: " + tag);
     saveTag(profileUrl, tag, comment);
     minimizePopup(); // Minimize popup after saving data
   });
@@ -146,6 +152,8 @@ function createTaggerPopup(message, comment, profileUrl) {
   // Skip tagging
   document.getElementById("skipTagging").addEventListener("click", () => {
     const comment = "";
+    const tag = popup.dataset.tag;
+    // alert("tag: " + tag);
     saveTag(profileUrl, tag, comment);
     minimizePopup(); // Minimize popup after skipping
   });
@@ -165,6 +173,8 @@ function createTaggerPopup(message, comment, profileUrl) {
       event.target.id !== "interested" // Ignore clicks on the buttons
     ) {
       const comment = document.getElementById("commentInput").value;
+      const tag = popup.dataset.tag;
+      // alert("tag: " + tag);
       saveTag(profileUrl, tag, comment);
       minimizePopup(); // Minimize popup after clicking outside
     }

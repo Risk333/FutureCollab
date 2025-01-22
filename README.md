@@ -1,11 +1,5 @@
 # FutureCollab
 
-[![Extension's Mozilla Rating](https://img.shields.io/amo/rating/hide-youtube-shorts?color=green&label=Mozilla%20Rating&logo=FirefoxBrowser)](https://addons.mozilla.org/en-US/firefox/addon/hide-youtube-shorts/)
-[![Extension's Mozilla users](https://img.shields.io/amo/users/hide-youtube-shorts?label=Mozilla%20Users&logo=FirefoxBrowser)](https://addons.mozilla.org/en-US/firefox/addon/hide-youtube-shorts/)
-[![Extension's Chrome Web Store rating](https://img.shields.io/chrome-web-store/rating/ankepacjgoajhjpenegknbefpmfffdic?label=Chrome%20Rating&logo=google%20chrome)](https://chrome.google.com/webstore/detail/hide-shorts-for-youtube/ankepacjgoajhjpenegknbefpmfffdic)
-[![Extension's Chrome Web Store users](https://img.shields.io/chrome-web-store/users/ankepacjgoajhjpenegknbefpmfffdic?label=Chrome%20Users&logo=google%20chrome)](https://chrome.google.com/webstore/detail/hide-shorts-for-youtube/ankepacjgoajhjpenegknbefpmfffdic)
-[![Licence](https://img.shields.io/github/license/Vulpelo/hide-youtube-shorts)](https://github.com/Risk333/FutureCollab/blob/main/LICENSE.md)
-
 Tag LinkedIn profiles for future job considerations. Selecting the right people to collaborate with—those who inspire, excite, and challenge you to grow—is just as important as choosing an engaging project in your career. This extension helps you efficiently tag LinkedIn profiles to keep track of potential companies, teams, or projects you'd like to work with, making it easier to shortlist opportunities when the time comes.
 
 ## Features
