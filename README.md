@@ -1,5 +1,9 @@
 # FutureCollab
 
+[![Extension's Mozilla Rating](https://img.shields.io/amo/rating/futurecollab?color=green&label=Mozilla%20Rating&logo=FirefoxBrowser)](https://addons.mozilla.org/en-US/firefox/addon/futurecollab/)
+[![Extension's Mozilla users](https://img.shields.io/amo/users/futurecollab?label=Mozilla%20Users&logo=FirefoxBrowser)](https://addons.mozilla.org/en-US/firefox/addon/futurecollab/)
+[![Licence](https://img.shields.io/github/license/Risk333/FutureCollab)](https://github.com/Risk333/FutureCollab/blob/main/LICENSE.md)
+
 Tag LinkedIn profiles for future job considerations. Selecting the right people to collaborate with—those who inspire, excite, and challenge you to grow—is just as important as choosing an engaging project in your career. This extension helps you efficiently tag LinkedIn profiles to keep track of potential companies, teams, or projects you'd like to work with, making it easier to shortlist opportunities when the time comes.
 
 ## Features
@@ -10,7 +14,7 @@ Tag LinkedIn profiles for future job considerations. Selecting the right people 
 
 ### Firefox 
 
-Install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/FutureCollab/) webpage
+Install from [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/futurecollab/) webpage
 
 or add the Add-on temporarily:
 1. Download the project
@@ -21,7 +25,7 @@ or add the Add-on temporarily:
 
 ### Google Chrome
 
-Install from [Chrome web store](https://chrome.google.com/webstore/detail/FutureCollab/) webpage
+Install from [Chrome web store](https://chrome.google.com/webstore/detail/futurecollab/) webpage
 
 or add the Add-on manually:
 1. Download the project
